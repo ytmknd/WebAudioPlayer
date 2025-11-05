@@ -171,6 +171,12 @@ async function loadAudioFile(file) {
     audioPlayer.src = url;
     fileNameDisplay.textContent = file.name;
     
+    // 再生ヘッドを先頭に戻す
+    audioPlayer.currentTime = 0;
+    
+    // 再生ヘッドの表示を更新
+    playhead.style.left = '0%';
+    
     // 再生開始位置をリセット
     startTime = 0;
     

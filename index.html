@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3/WAV Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 オーディオプレイヤー</h1>
+        
+        <div class="player-section">
+            <div class="file-input-section" id="drop-zone">
+                <label for="audio-file" class="file-label">
+                    <span>📁 ファイルを選択</span>
+                    <input type="file" id="audio-file" accept=".mp3,.wav,audio/mpeg,audio/wav">
+                </label>
+                <span id="file-name" class="file-name">ファイルが選択されていません</span>
+                <div class="drop-hint">または、ここにファイルをドラッグ＆ドロップ</div>
+            </div>
+
+            <audio id="audio-player" preload="metadata"></audio>
+
+            <div class="controls">
+                <button id="play-btn" class="btn btn-play" disabled>▶ 再生</button>
+                <button id="pause-btn" class="btn btn-pause" disabled>⏸ 一時停止</button>
+                <button id="stop-btn" class="btn btn-stop" disabled>⏹ 停止</button>
+                <button id="repeat-btn" class="btn btn-repeat" disabled>🔁 リピート: OFF</button>
+            </div>
+
+            <div class="waveform-section">
+                <div class="time-info">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+                <div class="waveform-container">
+                    <canvas id="waveform-canvas"></canvas>
+                    <div id="start-marker" class="range-marker start-marker"></div>
+                    <div id="end-marker" class="range-marker end-marker"></div>
+                    <div id="playhead"></div>
+                </div>
+            </div>
+
+            <div class="volume-control">
+                <label for="volume">🔊 音量:</label>
+                <input type="range" id="volume" min="0" max="200" value="100">
+                <span id="volume-value">100%</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
